@@ -86,6 +86,7 @@ impl Hexagram {
     pub fn get_changing_line_positions(&self) -> Vec<usize> {
         self.get_lines_as_vec()
             .iter()
+            .rev()
             .enumerate()
             .filter_map(|enumerated_line| match enumerated_line {
                 (index, Line::BrokenChanging) | (index, Line::UnbrokenChanging) => Some(index),

@@ -10,6 +10,16 @@
 [crates-link]: https://crates.io/crates/iching/
 [license-link]: COPYING
 
+This is a fork of @velfi's iching crate as detailed below.
+
+## Improvements and Fixes
+
+* When coins are cast, lines are drawn from bottom up.
+* Once lines are drawn, the correct hexagrams are referenced.
+* When hexagrams are interpreted, the correct changing lines are offered.
+* Improved readability of interpretation: new layout and color.
+
+---
 This library contains methods for divination using the I Ching and also includes a CLI app
 for making predictions in your terminal. The CLI app was inspired by the original
 [ching(6)](http://cfcl.com/ching/man/) unix app.

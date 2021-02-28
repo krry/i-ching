@@ -1,5 +1,7 @@
 use clap::AppSettings;
 use clap::{App, ArgMatches};
+use ansi_term::Style;
+use ansi_term::Colour::Cyan;
 
 use iching::{
     hexagram::{Hexagram, HexagramOrdering},
@@ -161,8 +163,7 @@ fn print_changing_lines_info(hexagram: &Hexagram, hexagram_info: &dyn HexagramIn
 
     // If there are no changing lines, return.
     if !changing_line_positions.is_empty() {
-        println!("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
-        println!("Lines are changing! Consider:");
+        println!("{}", Style::new().fg(Cyan).underline().paint("Lines are changing! Consider:"));
         // Else, print out the changing line meanings.
         for line_meaning in hexagram_info.get_line_meanings(&changing_line_positions) {
             print!(

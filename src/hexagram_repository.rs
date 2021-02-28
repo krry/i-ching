@@ -3,6 +3,9 @@ use std::{
     fmt::{self, Display, Formatter},
 };
 
+use ansi_term::Style;
+use ansi_term::Colour::Purple;
+
 use serde_derive::Deserialize;
 
 use crate::hexagram::HexagramOrdering;
@@ -64,7 +67,7 @@ pub trait HexagramInfo {
 impl Display for &dyn HexagramInfo {
     fn fmt(&self, f: &mut Formatter) -> Result<(), fmt::Error> {
         writeln!(f)?;
-        writeln!(f, "Hexagram No. {}  {}", self.get_number(), self.get_symbol())?;
+        writeln!(f, "Hexagram No. {}  {}", self.get_number(), Style::new().fg(Purple).paint(self.get_symbol()))?;
         writeln!(f, "  {}", self.get_localized_name())?;
         writeln!(
             f,
